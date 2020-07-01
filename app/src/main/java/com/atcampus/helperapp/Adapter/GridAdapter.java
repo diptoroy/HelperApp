@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.atcampus.helperapp.Model.GridModel;
 import com.atcampus.helperapp.R;
+import com.atcampus.helperapp.RetrofitActivity;
 
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class GridAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         final View view;
 
         if (convertView == null){
@@ -50,6 +51,10 @@ public class GridAdapter extends BaseAdapter {
                 public void onClick(View v) {
 //                    Intent productDetails = new Intent(parent.getContext(), ProductDetailsActivity.class);
 //                    parent.getContext().startActivity(productDetails);
+                    if (position == 0){
+                        Intent productDetails = new Intent(parent.getContext(), RetrofitActivity.class);
+                        parent.getContext().startActivity(productDetails);
+                    }
                 }
             });
 
